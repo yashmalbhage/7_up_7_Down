@@ -5,7 +5,7 @@ const { rollDice, calculateResult } = require('./game');
 
 const app = express();
 const cors = require('cors');
-const allowedOrigins = ['https://your-react-app.vercel.app']; // Replace with your actual React app URL
+const allowedOrigins = ['https://7-up-7-down-auxj.vercel.app/']; // Replace with your actual React app URL
 app.use(cors({
     origin: function(origin, callback) {
         if (!origin || allowedOrigins.includes(origin)) {
