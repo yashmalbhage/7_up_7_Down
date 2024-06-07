@@ -4,10 +4,7 @@ const bodyParser = require('body-parser');
 const { rollDice, calculateResult } = require('./game');
 
 const app = express();
-app.use(cors({
-    origin: '*'
-}));
-
+app.use(cors());
 app.use(bodyParser.json());
 
 let points = 5000;
