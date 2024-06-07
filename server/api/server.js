@@ -10,7 +10,12 @@ app.use(bodyParser.json());
 
 let points = 5000;
 
-app.post('/roll', (req, res) => { // Simplify the path
+// Define a root route
+app.get('/', (req, res) => {
+    res.send('Welcome to the 7 Up 7 Down Game API!');
+});
+
+app.post('/roll', (req, res) => {
     const { bet } = req.body;
     const dice = rollDice();
     const result = calculateResult(bet, dice, points);
@@ -24,5 +29,4 @@ app.post('/points', (req, res) => {
     res.json(points);
 });
 
-// Export the Express app as a module
 module.exports = app;
