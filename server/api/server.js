@@ -4,8 +4,18 @@ const bodyParser = require('body-parser');
 const { rollDice, calculateResult } = require('./game');
 
 const app = express();
+const cors = require('cors');
+const allowedOrigins = ['https://your-react-app.vercel.app']; // Replace with your actual React app URL
+app.use(cors({
+    origin: function(origin, callback) {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    }
+}));
 
-app.use(cors());
 app.use(bodyParser.json());
 
 let points = 5000;
