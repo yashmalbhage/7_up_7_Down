@@ -4,13 +4,9 @@ const bodyParser = require('body-parser');
 const { rollDice, calculateResult } = require('./game');
 
 const app = express();
-// const cors = require('cors');
-// const corsOptions = {
-//     origin: 'https://7-up-7-down-auxj.vercel.app/',
-//     credentials: true, //access-control-allow-credentials:true
-//     optionSuccessStatus: 200
-// }
-// app.use(cors(corsOptions));
+app.use(cors({
+    origin: '*'
+}));
 
 app.use(bodyParser.json());
 
